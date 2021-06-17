@@ -130,11 +130,7 @@ class Airplane {
     }
   }
 
-  const kyle = new Lambdasian({
-    name: 'kyle',
-    age: '30',
-    location: 'seattle'
-  });
+  
   
   /*
     TASK 4
@@ -179,10 +175,33 @@ class Airplane {
           + `PRAssignment` a method that receives a subject as an argument and returns `student.name has submitted a PR for {subject}`
           + `sprintChallenge` similar to PRAssignment but returns `student.name has begun sprint challenge on {subject}`
   */
- class Student {
-     
+ class Student extends Lambdasian{
+   constructor(object){
+     super(object);
+     this.previousBackground= object.previousBackground;
+     this.className = object.className;
+     this.favSubjects = object.favSubjects;
+   }
+   listSubjects(){
+     return `Loving ${this.favSubjects.toString()}!`;
+   }
+   PRAssignment(subject){
+     return `${this.name} has submitted a PR for ${subject}`;
+   }
+   sprintChallenge(subject){
+     return `${this.name} has begun sprint challenge on ${subject}`;
+   }
  }
-  
+
+ const kyle = new Student({
+  name: 'kyle',
+  age: '30',
+  location: 'seattle',
+  previousBackground: 'none',
+  className: 'CSS',
+  favSubjects: ['math', 'ecology', 'physics', 'Planets']
+});
+  console.log('task 5', kyle.listSubjects());
   /*
     TASK 6
       - Write a ProjectManager class extending Instructor.
