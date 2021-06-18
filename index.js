@@ -215,7 +215,20 @@ class Airplane {
           + `standUp` a method that takes in a slack channel and returns `{name} announces to {channel}, @channel standy times!`
           + `debugsCode` a method that takes in a student object and a subject and returns `{name} debugs {student.name}'s code on {subject}`
   */
- class ProjectManager {
+ class ProjectManager extends Instructor{
+   constructor (object){
+      super (object);
+      this.gradClassName = object.gradClassName;
+      this.favInstructor = object.favInstructor;
+   }
+   standUp(channel){
+     return `${this.name} announces to ${channel}, @channel standy times!`
+   }
+   debugsCode(studentObject, subject){
+     return `${this.name} debugs ${studentObject.name}'s code on ${subject}`
+   }
+
+   
      
  }
   /*
